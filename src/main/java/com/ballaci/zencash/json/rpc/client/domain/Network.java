@@ -44,6 +44,46 @@ public class Network implements Serializable {
         this.proxy = proxy;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getLimited() {
+        return limited;
+    }
+
+    public void setLimited(Boolean limited) {
+        this.limited = limited;
+    }
+
+    public Boolean getReachable() {
+        return reachable;
+    }
+
+    public void setReachable(Boolean reachable) {
+        this.reachable = reachable;
+    }
+
+    public String getProxy() {
+        return proxy;
+    }
+
+    public void setProxy(String proxy) {
+        this.proxy = proxy;
+    }
+
+    public boolean isProxy_randomize_credentials() {
+        return proxy_randomize_credentials;
+    }
+
+    public void setProxy_randomize_credentials(boolean proxy_randomize_credentials) {
+        this.proxy_randomize_credentials = proxy_randomize_credentials;
+    }
+
     @Override
     public String toString() {
         return "Network{" +

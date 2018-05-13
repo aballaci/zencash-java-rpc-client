@@ -1,7 +1,9 @@
 package com.ballaci.zencash.json.rpc.client;
 
 import com.ballaci.zencash.json.rpc.client.domain.Info;
+import com.ballaci.zencash.json.rpc.client.domain.NetTotals;
 import com.ballaci.zencash.json.rpc.client.domain.NetworkInfo;
+import com.ballaci.zencash.json.rpc.client.domain.NodeInfo;
 import com.ballaci.zencash.json.rpc.client.util.Config;
 import com.github.arteam.simplejsonrpc.client.JsonRpcClient;
 import com.github.arteam.simplejsonrpc.client.Transport;
@@ -87,6 +89,21 @@ public class TestCase {
                 .returnAs(NetworkInfo.class)
                 .execute();
         System.out.println("Response: " + networkInfo.toString() );
+
+        NetTotals netTotals = client.createRequest()
+                .method("getnettotals")
+                .id("curltest")
+                .returnAs(NetTotals.class)
+                .execute();
+        System.out.println("Response: " + netTotals.toString() );
+
+        NodeInfo nodeInfo = client.createRequest()
+                .method("getaddednodeinfo")
+                .params("false")
+                .id("curltest")
+                .returnAs(NodeInfo.class)
+                .execute();
+        System.out.println("Response: " + nodeInfo.toString() );
     }
 }
 

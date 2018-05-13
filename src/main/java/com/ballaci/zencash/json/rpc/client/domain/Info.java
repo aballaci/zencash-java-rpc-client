@@ -62,6 +62,126 @@ public class Info {
         this.errors = errors;
     }
 
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+
+    public Long getProtocolversion() {
+        return protocolversion;
+    }
+
+    public void setProtocolversion(Long protocolversion) {
+        this.protocolversion = protocolversion;
+    }
+
+    public Long getWalletversion() {
+        return walletversion;
+    }
+
+    public void setWalletversion(Long walletversion) {
+        this.walletversion = walletversion;
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public Long getBlocks() {
+        return blocks;
+    }
+
+    public void setBlocks(Long blocks) {
+        this.blocks = blocks;
+    }
+
+    public Integer getTimeoffset() {
+        return timeoffset;
+    }
+
+    public void setTimeoffset(Integer timeoffset) {
+        this.timeoffset = timeoffset;
+    }
+
+    public int getConnections() {
+        return connections;
+    }
+
+    public void setConnections(int connections) {
+        this.connections = connections;
+    }
+
+    public String getProxy() {
+        return proxy;
+    }
+
+    public void setProxy(String proxy) {
+        this.proxy = proxy;
+    }
+
+    public Double getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Double difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public Boolean getTestnet() {
+        return testnet;
+    }
+
+    public void setTestnet(Boolean testnet) {
+        this.testnet = testnet;
+    }
+
+    public Long getKeypoololdest() {
+        return keypoololdest;
+    }
+
+    public void setKeypoololdest(Long keypoololdest) {
+        this.keypoololdest = keypoololdest;
+    }
+
+    public Long getKeypoolsize() {
+        return keypoolsize;
+    }
+
+    public void setKeypoolsize(Long keypoolsize) {
+        this.keypoolsize = keypoolsize;
+    }
+
+    public Double getPaytxfee() {
+        return paytxfee;
+    }
+
+    public void setPaytxfee(Double paytxfee) {
+        this.paytxfee = paytxfee;
+    }
+
+    public Double getRelayfee() {
+        return relayfee;
+    }
+
+    public void setRelayfee(Double relayfee) {
+        this.relayfee = relayfee;
+    }
+
+    public String getErrors() {
+        return errors;
+    }
+
+    public void setErrors(String errors) {
+        this.errors = errors;
+    }
+
     @Override
     public String toString() {
         return "Info{" +

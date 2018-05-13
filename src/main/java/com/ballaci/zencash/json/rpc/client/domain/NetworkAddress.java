@@ -4,13 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 
-/**
- *  *             "  {\n"
- *  *             "    \"address\": \"xxxx\",                 (string) network address\n"
- *  *             "    \"port\": xxx,                         (numeric) network port\n"
- *  *             "    \"score\": xxx                         (numeric) relative score\n"
- *  *             "  }\n"
- */
+
 public class NetworkAddress implements Serializable {
 
     @JsonProperty
@@ -26,6 +20,30 @@ public class NetworkAddress implements Serializable {
                           @JsonProperty("score") Integer score) {
         this.address = address;
         this.port = port;
+        this.score = score;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getPort() {
+        return port;
+    }
+
+    public void setPort(Integer port) {
+        this.port = port;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
         this.score = score;
     }
 

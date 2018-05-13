@@ -6,40 +6,8 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 /**
- *     "getnetworkinfo\n"
- *  *             "Returns an object containing various state info regarding P2P networking.\n"
- *  *             "\nResult:\n"
- *  *             "{\n"
- *  *             "  \"version\": xxxxx,                      (numeric) the server version\n"
- *  *             "  \"subversion\": \"/MagicBean:x.y.z[-v]/\",     (string) the server subversion string\n"
- *  *             "  \"protocolversion\": xxxxx,              (numeric) the protocol version\n"
- *  *             "  \"localservices\": \"xxxxxxxxxxxxxxxx\", (string) the services we offer to the network\n"
- *  *             "  \"timeoffset\": xxxxx,                   (numeric) the time offset\n"
- *  *             "  \"connections\": xxxxx,                  (numeric) the number of connections\n"
- *  *             "  \"tls_cert_verified\": true|flase,       (boolean) true if the certificate of the current node is verified\n"
- *  *             "  \"networks\": [                          (array) information per network\n"
- *  *             "  {\n"
- *  *             "    \"name\": \"xxx\",                     (string) network (ipv4, ipv6 or onion)\n"
- *  *             "    \"limited\": true|false,               (boolean) is the network limited using -onlynet?\n"
- *  *             "    \"reachable\": true|false,             (boolean) is the network reachable?\n"
- *  *             "    \"proxy\": \"host:port\"               (string) the proxy that is used for this network, or empty if none\n"
- *  *             "  }\n"
- *  *             "  ,...\n"
- *  *             "  ],\n"
- *  *             "  \"relayfee\": x.xxxxxxxx,                (numeric) minimum relay fee for non-free transactions in btc/kb\n"
- *  *             "  \"localaddresses\": [                    (array) list of local addresses\n"
- *  *             "  {\n"
- *  *             "    \"address\": \"xxxx\",                 (string) network address\n"
- *  *             "    \"port\": xxx,                         (numeric) network port\n"
- *  *             "    \"score\": xxx                         (numeric) relative score\n"
- *  *             "  }\n"
- *  *             "  ,...\n"
- *  *             "  ]\n"
- *  *             "  \"warnings\": \"...\"                    (string) any network warnings (such as alert messages) \n"
- *  *             "}\n"
- *  *             "\nExamples:\n"
+ *  Returns an object containing various state info regarding P2P networking.
  */
-
 
 public class NetworkInfo implements Serializable {
 
@@ -107,6 +75,94 @@ public class NetworkInfo implements Serializable {
         this.networks = networks;
         this.relayfee = relayfee;
         this.localaddresses = localaddresses;
+        this.warnings = warnings;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    public String getSubversion() {
+        return subversion;
+    }
+
+    public void setSubversion(String subversion) {
+        this.subversion = subversion;
+    }
+
+    public Integer getProtocolversion() {
+        return protocolversion;
+    }
+
+    public void setProtocolversion(Integer protocolversion) {
+        this.protocolversion = protocolversion;
+    }
+
+    public Integer getLocalservices() {
+        return localservices;
+    }
+
+    public void setLocalservices(Integer localservices) {
+        this.localservices = localservices;
+    }
+
+    public Integer getTimeoffset() {
+        return timeoffset;
+    }
+
+    public void setTimeoffset(Integer timeoffset) {
+        this.timeoffset = timeoffset;
+    }
+
+    public Integer getConnections() {
+        return connections;
+    }
+
+    public void setConnections(Integer connections) {
+        this.connections = connections;
+    }
+
+    public Boolean getTls_cert_verified() {
+        return tls_cert_verified;
+    }
+
+    public void setTls_cert_verified(Boolean tls_cert_verified) {
+        this.tls_cert_verified = tls_cert_verified;
+    }
+
+    public Network[] getNetworks() {
+        return networks;
+    }
+
+    public void setNetworks(Network[] networks) {
+        this.networks = networks;
+    }
+
+    public Double getRelayfee() {
+        return relayfee;
+    }
+
+    public void setRelayfee(Double relayfee) {
+        this.relayfee = relayfee;
+    }
+
+    public NetworkAddress[] getLocaladdresses() {
+        return localaddresses;
+    }
+
+    public void setLocaladdresses(NetworkAddress[] localaddresses) {
+        this.localaddresses = localaddresses;
+    }
+
+    public String getWarnings() {
+        return warnings;
+    }
+
+    public void setWarnings(String warnings) {
         this.warnings = warnings;
     }
 
