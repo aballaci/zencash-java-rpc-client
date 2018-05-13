@@ -37,4 +37,8 @@ public class Config {
     public String getProperty(String key){
         return properties.getProperty(key);
     }
+
+    public Integer getIntProperty(String key){
+        return Integer.valueOf(properties.getProperty(key));
+    }
 }

@@ -25,12 +25,18 @@ public class TestCase {
 
     public static final String PROP_RPC_USER = "rpcuser";
     public static final String PROP_RPC_PASSWORD = "rpcpassword";
+    public static final String PROP_RPC_CONNECT_TIMEOUT = "connectTimeout";
+    public static final String PROP_RPC_CONNECTION_REQUEST_TIMEOUT = "connectionRequestTimeout";
+    public static final String PROP_RPC_SOCKET_TIMEOUT = "socketTimeout";
 
     public static void main(String[] args) {
 
         Config config = Config.getInstance();
         final String rpcuser = config.getProperty(PROP_RPC_USER);
         final String rpcpassword = config.getProperty(PROP_RPC_PASSWORD);
+        final Integer connectTimeout = config.getIntProperty(PROP_RPC_CONNECT_TIMEOUT);
+        final Integer connectionRequestTimeout = config.getIntProperty(PROP_RPC_CONNECTION_REQUEST_TIMEOUT);
+        final Integer socketTimeout = config.getIntProperty(PROP_RPC_SOCKET_TIMEOUT);
 
         Authenticator.setDefault(new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -46,9 +52,9 @@ public class TestCase {
 
 
             private final RequestConfig requestConfig = RequestConfig.custom()
-                    .setConnectTimeout(90000)
-                    .setConnectionRequestTimeout(90000)
-                    .setSocketTimeout(90000)
+                    .setConnectTimeout(connectTimeout)
+                    .setConnectionRequestTimeout(connectionRequestTimeout)
+                    .setSocketTimeout(socketTimeout)
                     .build();
 
             CloseableHttpClient httpClient = HttpClients.createDefault();
