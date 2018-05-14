@@ -3,7 +3,6 @@ package com.ballaci.zencash.json.rpc.client;
 import com.ballaci.zencash.json.rpc.client.domain.Info;
 import com.ballaci.zencash.json.rpc.client.domain.NetTotals;
 import com.ballaci.zencash.json.rpc.client.domain.NetworkInfo;
-import com.ballaci.zencash.json.rpc.client.domain.NodeInfo;
 import com.ballaci.zencash.json.rpc.client.util.Config;
 import com.github.arteam.simplejsonrpc.client.JsonRpcClient;
 import com.github.arteam.simplejsonrpc.client.Transport;
@@ -20,8 +19,7 @@ import org.apache.http.util.EntityUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
+import java.util.Base64;
 
 public class TestCase {
 
@@ -30,6 +28,7 @@ public class TestCase {
     public static final String PROP_RPC_CONNECT_TIMEOUT = "connectTimeout";
     public static final String PROP_RPC_CONNECTION_REQUEST_TIMEOUT = "connectionRequestTimeout";
     public static final String PROP_RPC_SOCKET_TIMEOUT = "socketTimeout";
+    public static final String PROP_SERVER_URL = "serverurl";
 
     public static void main(String[] args) {
 
@@ -39,14 +38,11 @@ public class TestCase {
         final Integer connectTimeout = config.getIntProperty(PROP_RPC_CONNECT_TIMEOUT);
         final Integer connectionRequestTimeout = config.getIntProperty(PROP_RPC_CONNECTION_REQUEST_TIMEOUT);
         final Integer socketTimeout = config.getIntProperty(PROP_RPC_SOCKET_TIMEOUT);
-
-        Authenticator.setDefault(new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication (rpcuser, rpcpassword.toCharArray());
-            }
-        });
-
-
+        final String auth = Base64.getEncoder()
+                .encodeToString(new StringBuilder(rpcuser)
+                .append(":")
+                .append(rpcpassword)
+                .toString().getBytes());
 
         JsonRpcClient client = new JsonRpcClient(new Transport() {
 
@@ -64,9 +60,9 @@ public class TestCase {
             @NotNull
             @Override
             public String pass(@NotNull String request) throws IOException {
-                // Used Apache HttpClient 4.3.1 as an example
-                HttpPost post = new HttpPost("http://127.0.0.1:8231");
-                post.setHeader("Authorization", "Basic VXNlcjE5NzY3OTgxNzpQYXNzNzk3MDI3NjYwOTYxMDA3NDE1NjE3NzMyNDA4" /* + Base64.getEncoder().encodeToString("User197679817:Pass797027660961007415617732408".getBytes())*/);
+
+                HttpPost post = new HttpPost(config.getProperty(PROP_SERVER_URL));
+                post.setHeader("Authorization", "Basic " + auth);
                 post.setConfig(requestConfig);
                 post.setEntity(new StringEntity(request, Charsets.UTF_8));
                 post.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.JSON_UTF_8.toString());
@@ -97,13 +93,13 @@ public class TestCase {
                 .execute();
         System.out.println("Response: " + netTotals.toString() );
 
-        NodeInfo nodeInfo = client.createRequest()
+        /*NodeInfo nodeInfo = client.createRequest()
                 .method("getaddednodeinfo")
                 .params("false")
                 .id("curltest")
                 .returnAs(NodeInfo.class)
                 .execute();
-        System.out.println("Response: " + nodeInfo.toString() );
+        System.out.println("Response: " + nodeInfo.toString() );*/
     }
 }
 
