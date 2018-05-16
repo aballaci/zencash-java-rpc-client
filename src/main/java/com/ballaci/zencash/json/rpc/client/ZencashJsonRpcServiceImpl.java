@@ -98,6 +98,22 @@ public class ZencashJsonRpcServiceImpl implements ZencashJsonRpcService {
                 .execute();
     }
 
+    @Override
+    public String stop() {
+        return client.createRequest()
+                .method("stop")
+                .returnAs(String.class)
+                .execute();
+    }
+
+    @Override
+    public BlockchainInfo getBlockchainInfo() {
+        return client.createRequest()
+                .method("getblockchaininfo")
+                .returnAs(BlockchainInfo.class)
+                .execute();
+    }
+
     private void init() {
 
         Config config = Config.getInstance();

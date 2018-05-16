@@ -14,9 +14,18 @@ import java.util.Optional;
 @JsonRpcService
 public interface ZencashJsonRpcService {
 
+    /**
+     * Returns an object containing various state info
+     * @return {@link Info}
+     */
     @JsonRpcMethod
     Info getInfo();
 
+
+    /**
+     * Returns an object containing various state info regarding P2P networking
+     * @return {@link NetworkInfo}
+     */
     @JsonRpcMethod
     NetworkInfo getNetworkInfo();
 
@@ -24,7 +33,6 @@ public interface ZencashJsonRpcService {
      *
      * @return Returns information about network traffic, including bytes in, bytes out
      *         and current time
-     * @throws ZenRpcException
      */
     @JsonRpcMethod
     NetTotals getNetTotals();
@@ -36,8 +44,7 @@ public interface ZencashJsonRpcService {
      * otherwise connected information will also be available.
      * @param dns If false, only a list of added nodes will be provided, otherwise connected information will also be available.
      * @param node If provided, return information about this specific node, otherwise all nodes are returned. eg "192.168.0.201"
-     * @return an array of {@link []NodeInfo} that can be empty
-     * @throws ZenRpcException
+     * @return an array of { @link NodeInfo[] } that can be empty
      */
     @JsonRpcMethod
     NodeInfo[] getAddedNodeInfo (@JsonRpcParam("dns") Boolean dns, @JsonRpcParam("node") Optional<String> node);
@@ -45,7 +52,6 @@ public interface ZencashJsonRpcService {
     /**
      * Returns data about each connected network node as a json array of objects
      * @return {@link PeerInfo[]}
-     * @throws ZenRpcException
      */
     @JsonRpcMethod
     PeerInfo[] getPeerInfo();
@@ -56,4 +62,18 @@ public interface ZencashJsonRpcService {
      */
     @JsonRpcMethod
     int getConnectionCount();
+
+    /**
+     * stops the Zen server
+     * @return {@link String} "Zen server stopping"
+     */
+    @JsonRpcMethod
+    String stop();
+
+    /**
+     * Returns an object containing various state info regarding block chain processing.
+     * @return {@link BlockchainInfo}
+     */
+    @JsonRpcMethod
+    BlockchainInfo getBlockchainInfo();
 }
