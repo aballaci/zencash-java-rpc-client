@@ -1,5 +1,7 @@
 package com.ballaci.zencash.json.rpc.client.builder;
 
+import com.ballaci.zencash.json.rpc.client.exceptions.ErrorCode;
+import com.ballaci.zencash.json.rpc.client.exceptions.ZenRpcException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
@@ -335,6 +337,7 @@ public class RequestBuilder<T> extends AbstractBuilder {
                 throw new IllegalStateException("Unspecified id in a response: " + responseNode);
             }
 
+
             if (error == null || error.isNull()) {
                 if (result != null) {
                     return mapper.convertValue(result, javaType);
@@ -343,12 +346,12 @@ public class RequestBuilder<T> extends AbstractBuilder {
                 }
             } else {
                 ErrorMessage errorMessage = mapper.treeToValue(error, ErrorMessage.class);
-                throw new JsonRpcException(errorMessage);
+                throw new ZenRpcException(errorMessage.getCode(), errorMessage.getMessage());
             }
         } catch (JsonProcessingException e) {
-            throw new IllegalStateException("Unable parse a JSON response: " + textResponse, e);
+            throw new ZenRpcException(-32600, "Unable parse a JSON response: " + textResponse, e);
         } catch (IOException e) {
-            throw new IllegalStateException("I/O error during a response processing", e);
+            throw new ZenRpcException(-33000, "I/O error during a response processing", e);
         }
     }
 
@@ -360,12 +363,12 @@ public class RequestBuilder<T> extends AbstractBuilder {
             textRequest = mapper.writeValueAsString(requestNode);
             System.out.println("Request: " + textRequest);
         } catch (JsonProcessingException e) {
-            throw new IllegalArgumentException("Unable convert " + requestNode + " to JSON", e);
+            throw new ZenRpcException(-32600, "Unable convert " + requestNode + " to JSON", e);
         }
         try {
             textResponse = transport.pass(textRequest);
         } catch (IOException e) {
-            throw new IllegalStateException("I/O error during a request processing", e);
+            throw new ZenRpcException(-33000,"I/O error during a request processing", e);
         }
         return textResponse;
     }

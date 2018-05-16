@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
 /**
- *Returns information about network traffic, including bytes in, bytes out
+ * Represents information about network traffic, including bytes in, bytes out
  * and current time
  */
 public class NetTotals implements Serializable {

@@ -37,7 +37,7 @@ public class NetworkInfo implements Serializable {
 
     // true if the certificate of the current node is verified
     @JsonProperty
-    private Boolean tls_cert_verified;
+    private Boolean tlsCertVerified;
 
     @JsonProperty
     private Network[] networks;
@@ -60,7 +60,7 @@ public class NetworkInfo implements Serializable {
                        @JsonProperty("localservices") Integer localservices,
                        @JsonProperty("timeoffset") Integer timeoffset,
                        @JsonProperty("connections") Integer connections,
-                       @JsonProperty("tls_cert_verified") Boolean tls_cert_verified,
+                       @JsonProperty("tls_cert_verified") Boolean tlsCertVerified,
                        @JsonProperty("networks") Network[] networks,
                        @JsonProperty("relayfee") Double relayfee,
                        @JsonProperty("localaddresses") NetworkAddress[] localaddresses,
@@ -71,7 +71,7 @@ public class NetworkInfo implements Serializable {
         this.localservices = localservices;
         this.timeoffset = timeoffset;
         this.connections = connections;
-        this.tls_cert_verified = tls_cert_verified;
+        this.tlsCertVerified = tlsCertVerified;
         this.networks = networks;
         this.relayfee = relayfee;
         this.localaddresses = localaddresses;
@@ -126,12 +126,12 @@ public class NetworkInfo implements Serializable {
         this.connections = connections;
     }
 
-    public Boolean getTls_cert_verified() {
-        return tls_cert_verified;
+    public Boolean getTlsCertVerified() {
+        return tlsCertVerified;
     }
 
-    public void setTls_cert_verified(Boolean tls_cert_verified) {
-        this.tls_cert_verified = tls_cert_verified;
+    public void setTlsCertVerified(Boolean tlsCertVerified) {
+        this.tlsCertVerified = tlsCertVerified;
     }
 
     public Network[] getNetworks() {
@@ -175,7 +175,7 @@ public class NetworkInfo implements Serializable {
                 ", localservices=" + localservices +
                 ", timeoffset=" + timeoffset +
                 ", connections=" + connections +
-                ", tls_cert_verified=" + tls_cert_verified +
+                ", tlsCertVerified=" + tlsCertVerified +
                 ", networks=" + Arrays.toString(networks) +
                 ", relayfee=" + relayfee +
                 ", localaddresses=" + Arrays.toString(localaddresses) +

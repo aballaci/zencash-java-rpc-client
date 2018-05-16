@@ -31,17 +31,18 @@ public class Network implements Serializable {
 
     //the proxy that is used for this network, or empty if none
     @JsonProperty
-    private boolean proxy_randomize_credentials;
+    private boolean proxyRandomizeCredentials;
 
     public Network(@JsonProperty("name") String name,
                    @JsonProperty("limited") Boolean limited,
                    @JsonProperty("reachable") Boolean reachable,
                    @JsonProperty("proxy") String proxy,
-                   @JsonProperty("proxy_randomize_credentials") boolean proxy_randomize_credentials) {
+                   @JsonProperty("proxy_randomize_credentials") boolean proxyRandomizeCredentials) {
         this.name = name;
         this.limited = limited;
         this.reachable = reachable;
         this.proxy = proxy;
+        this.proxyRandomizeCredentials = proxyRandomizeCredentials;
     }
 
     public String getName() {
@@ -76,12 +77,12 @@ public class Network implements Serializable {
         this.proxy = proxy;
     }
 
-    public boolean isProxy_randomize_credentials() {
-        return proxy_randomize_credentials;
+    public boolean isProxyRandomizeCredentials() {
+        return proxyRandomizeCredentials;
     }
 
-    public void setProxy_randomize_credentials(boolean proxy_randomize_credentials) {
-        this.proxy_randomize_credentials = proxy_randomize_credentials;
+    public void setProxyRandomizeCredentials(boolean proxyRandomizeCredentials) {
+        this.proxyRandomizeCredentials = proxyRandomizeCredentials;
     }
 
     @Override
@@ -91,7 +92,7 @@ public class Network implements Serializable {
                 ", limited=" + limited +
                 ", reachable=" + reachable +
                 ", proxy='" + proxy + '\'' +
-                ", proxy_randomize_credentials=" + proxy_randomize_credentials +
+                ", proxyRandomizeCredentials=" + proxyRandomizeCredentials +
                 '}';
     }
 }
