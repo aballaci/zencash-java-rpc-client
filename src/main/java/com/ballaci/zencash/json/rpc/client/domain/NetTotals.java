@@ -8,6 +8,8 @@ import java.io.Serializable;
 /**
  * Represents information about network traffic, including bytes in, bytes out
  * and current time
+ *
+ * @author Armand Ballaci
  */
 public class NetTotals implements Serializable {
 

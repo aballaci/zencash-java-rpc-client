@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 
-
+/**
+ * @author Armand Ballaci
+ */
 public class NetworkAddress implements Serializable {
 
     @JsonProperty

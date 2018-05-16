@@ -3,6 +3,10 @@ package com.ballaci.zencash.json.rpc.client.domain;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * @author Armand Ballaci
+ */
+
 public class Info {
 
     @JsonProperty

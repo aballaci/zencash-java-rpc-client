@@ -7,14 +7,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 /**
- * Returns information about the given added node, or all added nodes
- * note that onetry addnodes are not listed here)
- * If dns is false, only a list of added nodes will be provided
- * otherwise connected information will also be available
- * nArguments:
- * 1. dns        (boolean, required) If false, only a list of added nodes will be provided, otherwise connected information will also be available.
- * 2. node       (string, optional) If provided, return information about this specific node, otherwise all nodes are returned.
- *
+ * @author Armand Ballaci
  */
 
 public class NodeInfo implements Serializable {

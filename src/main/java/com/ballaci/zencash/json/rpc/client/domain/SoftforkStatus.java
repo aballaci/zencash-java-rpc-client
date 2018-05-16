@@ -2,6 +2,9 @@ package com.ballaci.zencash.json.rpc.client.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * @author Armand Ballaci
+ */
 public class SoftforkStatus {
 
     // one of "defined", "started", "lockedin", "active", "failed"

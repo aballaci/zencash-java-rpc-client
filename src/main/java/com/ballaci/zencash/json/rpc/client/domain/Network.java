@@ -6,11 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
 /**
- * \"name\": \"xxx\",                     (string) network (ipv4, ipv6 or onion)\n"
- *  *             "    \"limited\": true|false,               (boolean) is the network limited using -onlynet?\n"
- *  *             "    \"reachable\": true|false,             (boolean) is the network reachable?\n"
- *  *             "    \"proxy\": \"host:port\"               (string) the proxy that is used for this network, or empty if none\n"
+ * @author Armand Ballaci
  */
+
 public class Network implements Serializable {
 
     //network (ipv4, ipv6 or onion)

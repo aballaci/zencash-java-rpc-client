@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Arrays;
 
-
+/**
+ * @author Armand Ballaci
+ */
 public class PeerInfo {
 
     // Peer index

@@ -10,6 +10,8 @@ import java.util.Optional;
 
 /**
  * The ZencashJsonRpc service Interface
+ *
+ * @author Armand Ballaci
  */
 @JsonRpcService
 public interface ZencashJsonRpcService {

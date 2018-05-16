@@ -6,6 +6,9 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 
+/**
+ * @author Armand Ballaci
+ */
 
 public class NodeAddress implements Serializable {
 

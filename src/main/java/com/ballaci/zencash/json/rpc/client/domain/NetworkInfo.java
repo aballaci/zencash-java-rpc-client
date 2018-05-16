@@ -7,6 +7,8 @@ import java.util.Arrays;
 
 /**
  *  Returns an object containing various state info regarding P2P networking.
+ *
+ * @author Armand Ballaci
  */
 
 public class NetworkInfo implements Serializable {
