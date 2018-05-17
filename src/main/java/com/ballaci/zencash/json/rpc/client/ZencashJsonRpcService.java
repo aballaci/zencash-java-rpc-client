@@ -113,4 +113,19 @@ public interface ZencashJsonRpcService {
      */
     @JsonRpcMethod
     BlockHeader getBlockHeaderVerbose(@JsonRpcParam("hash") String hash);
+
+    /**
+     * Return information about all known tips in the block tree,
+     * including the main chain as well as orphaned branches.
+     * @return   {@link Chaintip[]}
+     */
+    @JsonRpcMethod
+    Chaintip[] getChaintips();
+
+    /**
+     * Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
+     * @return   n.nnn
+     */
+    @JsonRpcMethod
+    double getDifficulty();
 }

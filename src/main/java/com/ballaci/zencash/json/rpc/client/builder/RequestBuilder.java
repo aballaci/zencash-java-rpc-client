@@ -1,6 +1,5 @@
 package com.ballaci.zencash.json.rpc.client.builder;
 
-import com.ballaci.zencash.json.rpc.client.exceptions.ErrorCode;
 import com.ballaci.zencash.json.rpc.client.exceptions.ZenRpcException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

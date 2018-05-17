@@ -159,6 +159,22 @@ public class ZencashJsonRpcServiceImpl implements ZencashJsonRpcService {
                 .execute();
     }
 
+    @Override
+    public Chaintip[] getChaintips() {
+        return client.createRequest()
+                .method("getchaintips")
+                .returnAsArray(Chaintip.class)
+                .execute();
+    }
+
+    @Override
+    public double getDifficulty() {
+        return client.createRequest()
+                .method("getdifficulty")
+                .returnAs(Double.class)
+                .execute();
+    }
+
     private void init() {
 
         Config config = Config.getInstance();
