@@ -114,6 +114,51 @@ public class ZencashJsonRpcServiceImpl implements ZencashJsonRpcService {
                 .execute();
     }
 
+    @Override
+    public String getBestBlockhash() {
+        return client.createRequest()
+                .method("getbestblockhash")
+                .returnAs(String.class)
+                .execute();
+    }
+
+    @Override
+    public int getBlockcount() {
+        return client.createRequest()
+                .method("getblockcount")
+                .returnAs(Integer.class)
+                .execute();
+
+    }
+
+    @Override
+    public String getBlockhash(int index) {
+        return client.createRequest()
+                .method("getblockhash")
+                .params(index)
+                .returnAs(String.class)
+                .execute();
+
+    }
+
+    @Override
+    public String getBlockHeader(String hash) {
+        return client.createRequest()
+                .method("getblockheader")
+                .params(hash)
+                .returnAs(String.class)
+                .execute();
+    }
+
+    @Override
+    public BlockHeader getBlockHeaderVerbose(String hash) {
+        return client.createRequest()
+                .method("getblockheader")
+                .params(hash, true)
+                .returnAs(BlockHeader.class)
+                .execute();
+    }
+
     private void init() {
 
         Config config = Config.getInstance();

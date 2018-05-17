@@ -78,4 +78,39 @@ public interface ZencashJsonRpcService {
      */
     @JsonRpcMethod
     BlockchainInfo getBlockchainInfo();
+
+    /**
+     * Returns the hash of the best (tip) block in the longest block chain.
+     * @return  the block hash hex encoded
+     */
+    @JsonRpcMethod
+    String getBestBlockhash();
+
+    /**
+     * Returns the number of blocks in the longest block chain.
+     * @return  The current block count
+     */
+    @JsonRpcMethod
+    int getBlockcount();
+
+    /**
+     * Returns hash of block in best-block-chain at index provided.
+     * @return  The block hash
+     */
+    @JsonRpcMethod
+    String getBlockhash(@JsonRpcParam("index") int index);
+
+    /**
+     * Returns a string that is serialized, hex-encoded data for blockheader 'hash'
+     * @return   hex-encoded data for block
+     */
+    @JsonRpcMethod
+    String getBlockHeader(@JsonRpcParam("hash") String hash);
+
+    /**
+     * Returns a string that is serialized, hex-encoded data for blockheader 'hash'
+     * @return   hex-encoded data for block
+     */
+    @JsonRpcMethod
+    BlockHeader getBlockHeaderVerbose(@JsonRpcParam("hash") String hash);
 }
