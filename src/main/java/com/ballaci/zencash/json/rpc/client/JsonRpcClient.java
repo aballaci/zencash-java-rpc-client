@@ -1,6 +1,7 @@
 package com.ballaci.zencash.json.rpc.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.github.arteam.simplejsonrpc.client.ParamsType;
 import com.github.arteam.simplejsonrpc.client.Transport;
 import com.ballaci.zencash.json.rpc.client.builder.BatchRequestBuilder;
@@ -53,6 +54,7 @@ public class JsonRpcClient {
     public JsonRpcClient(@NotNull Transport transport, @NotNull ObjectMapper mapper) {
         this.transport = transport;
         this.mapper = mapper;
+        mapper.registerModule(new Jdk8Module());
     }
 
     /**

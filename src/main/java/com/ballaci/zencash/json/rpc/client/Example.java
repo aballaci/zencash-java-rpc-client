@@ -5,18 +5,18 @@ import com.ballaci.zencash.json.rpc.client.domain.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
+import java.util.Optional;
+
 
 public class Example {
 
     public static void main(String[] args) {
         ZencashJsonRpcService client = new ZencashJsonRpcServiceImpl();
 
-        Map<String,TxDetail> info = client.getRawMempoolVerbose();
+        //UTXODetail detail = client.getTxOut("603631050d9a6c05756ed926c4204b3bb21ece045138549eb3185ce80898f3fa", 1);
+        Optional<UTXODetail> detail = client.getTxOut("866c30367a7e3555d4251d289dff333c00209b730a86194862ed5ebe8b904377", 1);
 
-
-        for(String key: info.keySet()) {
-            System.out.println(key + ": " +  info.get(key).toString());
-        }
+        System.out.println(detail.isPresent());
 
     }
 }

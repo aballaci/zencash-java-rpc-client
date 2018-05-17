@@ -2,6 +2,7 @@ package com.ballaci.zencash.json.rpc.client;
 
 import com.ballaci.zencash.json.rpc.client.domain.*;
 import com.ballaci.zencash.json.rpc.client.util.Config;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.github.arteam.simplejsonrpc.client.Transport;
 import com.github.arteam.simplejsonrpc.client.generator.AtomicLongIdGenerator;
 import com.google.common.net.MediaType;
@@ -22,6 +23,7 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+
 /**
  * The ZencashJsonRpc service Implementation
  *
@@ -204,6 +206,15 @@ public class ZencashJsonRpcServiceImpl implements ZencashJsonRpcService {
                 .params(true)
                 .returnAsMap(HashMap.class, TxDetail.class)
                 .execute();
+    }
+
+    @Override
+    public Optional<UTXODetail> getTxOut(String txid, int vout) {
+        return client.createRequest()
+                .method("gettxout")
+                .params(txid, vout)
+                .returnAs(new TypeReference<Optional<UTXODetail>>() {})
+                .executeNullable();
     }
 
     private void init() {

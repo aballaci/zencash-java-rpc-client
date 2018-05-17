@@ -3,6 +3,7 @@ package com.ballaci.zencash.json.rpc.client;
 import com.ballaci.zencash.json.rpc.client.domain.*;
 import com.ballaci.zencash.json.rpc.client.exceptions.ZenRpcException;
 import com.github.arteam.simplejsonrpc.core.annotation.JsonRpcMethod;
+import com.github.arteam.simplejsonrpc.core.annotation.JsonRpcOptional;
 import com.github.arteam.simplejsonrpc.core.annotation.JsonRpcParam;
 import com.github.arteam.simplejsonrpc.core.annotation.JsonRpcService;
 
@@ -103,6 +104,7 @@ public interface ZencashJsonRpcService {
 
     /**
      * Returns a string that is serialized, hex-encoded data for blockheader 'hash'
+     * @param hash
      * @return   hex-encoded data for block
      */
     @JsonRpcMethod
@@ -110,6 +112,7 @@ public interface ZencashJsonRpcService {
 
     /**
      * Returns a string that is serialized, hex-encoded data for blockheader 'hash'
+     * @param hash
      * @return   hex-encoded data for block
      */
     @JsonRpcMethod
@@ -145,9 +148,19 @@ public interface ZencashJsonRpcService {
     String[] getRawMempool();
 
     /**
-     * Returns all transaction ids in memory pool as a json array of string transaction ids.
+     * Returns all transaction in memory pool as a Map<txId, TxDetail>.
      * @return   an MempoolInfo object
      */
     @JsonRpcMethod
     Map<String,TxDetail> getRawMempoolVerbose();
+
+    /**
+     * Returns details about an unspent transaction output.
+     *
+     *  @param txid  The transaction id\n"
+     *  @param vout vout value
+     * @return   an MempoolInfo object
+     */
+    @JsonRpcMethod
+    Optional<UTXODetail> getTxOut(@JsonRpcParam("txid") String txid, @JsonRpcParam("vout") int vout);
 }
