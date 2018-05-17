@@ -1,13 +1,13 @@
 package com.ballaci.zencash.json.rpc.client;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.github.arteam.simplejsonrpc.client.ParamsType;
-import com.github.arteam.simplejsonrpc.client.Transport;
 import com.ballaci.zencash.json.rpc.client.builder.BatchRequestBuilder;
 import com.ballaci.zencash.json.rpc.client.builder.NotificationRequestBuilder;
 import com.ballaci.zencash.json.rpc.client.builder.ObjectApiBuilder;
 import com.ballaci.zencash.json.rpc.client.builder.RequestBuilder;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.github.arteam.simplejsonrpc.client.ParamsType;
+import com.github.arteam.simplejsonrpc.client.Transport;
 import com.github.arteam.simplejsonrpc.client.generator.IdGenerator;
 import org.jetbrains.annotations.NotNull;
 

@@ -1,9 +1,7 @@
 package com.ballaci.zencash.json.rpc.client;
 
 import com.ballaci.zencash.json.rpc.client.domain.*;
-import com.ballaci.zencash.json.rpc.client.exceptions.ZenRpcException;
 import com.github.arteam.simplejsonrpc.core.annotation.JsonRpcMethod;
-import com.github.arteam.simplejsonrpc.core.annotation.JsonRpcOptional;
 import com.github.arteam.simplejsonrpc.core.annotation.JsonRpcParam;
 import com.github.arteam.simplejsonrpc.core.annotation.JsonRpcService;
 
@@ -159,7 +157,7 @@ public interface ZencashJsonRpcService {
      *
      *  @param txid  The transaction id\n"
      *  @param vout vout value
-     * @return   an MempoolInfo object
+     *  @return   Optional<UTXODetail>
      */
     @JsonRpcMethod
     Optional<UTXODetail> getTxOut(@JsonRpcParam("txid") String txid, @JsonRpcParam("vout") int vout);

@@ -3,7 +3,6 @@ package com.ballaci.zencash.json.rpc.client.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 
 /**

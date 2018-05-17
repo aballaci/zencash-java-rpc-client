@@ -1,10 +1,7 @@
 package com.ballaci.zencash.json.rpc.client;
 
-import com.ballaci.zencash.json.rpc.client.domain.*;
+import com.ballaci.zencash.json.rpc.client.domain.UTXODetail;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
 import java.util.Optional;
 
 
