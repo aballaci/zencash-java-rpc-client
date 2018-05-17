@@ -20,7 +20,11 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.Optional;
-
+/**
+ * The ZencashJsonRpc service Implementation
+ *
+ * @author Armand Ballaci
+ */
 public class ZencashJsonRpcServiceImpl implements ZencashJsonRpcService {
 
     private static final Logger logger = Logger.getLogger(ZencashJsonRpcServiceImpl.class);
@@ -175,6 +179,14 @@ public class ZencashJsonRpcServiceImpl implements ZencashJsonRpcService {
                 .execute();
     }
 
+    @Override
+    public MempoolInfo getMempoolInfo() {
+        return client.createRequest()
+                .method("getmempoolinfo")
+                .returnAs(MempoolInfo.class)
+                .execute();
+    }
+
     private void init() {
 
         Config config = Config.getInstance();
@@ -221,7 +233,3 @@ public class ZencashJsonRpcServiceImpl implements ZencashJsonRpcService {
     }
 }
 
-/**
- * resp: {"result":null,"error":{"code":-28,"message":"Activating best chain..."},"id":"curltest"}
- * {"result":null,"error":{"code":-28,"message":"Rescanning..."},"id":"curltest"}
- */

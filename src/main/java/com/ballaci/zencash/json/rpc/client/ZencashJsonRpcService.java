@@ -128,4 +128,11 @@ public interface ZencashJsonRpcService {
      */
     @JsonRpcMethod
     double getDifficulty();
+
+    /**
+     * Returns details on the active state of the TX memory pool.
+     * @return   an MempoolInfo object
+     */
+    @JsonRpcMethod
+    MempoolInfo getMempoolInfo();
 }

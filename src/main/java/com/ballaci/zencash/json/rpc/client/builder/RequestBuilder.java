@@ -32,6 +32,7 @@ import java.util.Set;
  * It delegates JSON processing to Jackson {@link ObjectMapper} and actual request performing to {@link com.github.arteam.simplejsonrpc.client.Transport}.
  *
  * @author Artem Prigoda
+ * @author Armand Ballaci
  */
 public class RequestBuilder<T> extends AbstractBuilder {
 
