@@ -19,6 +19,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 /**
  * The ZencashJsonRpc service Implementation
@@ -184,6 +186,23 @@ public class ZencashJsonRpcServiceImpl implements ZencashJsonRpcService {
         return client.createRequest()
                 .method("getmempoolinfo")
                 .returnAs(MempoolInfo.class)
+                .execute();
+    }
+
+    @Override
+    public String[] getRawMempool() {
+        return client.createRequest()
+                .method("getrawmempool")
+                .returnAsArray(String.class)
+                .execute();
+    }
+
+    @Override
+    public Map<String,TxDetail> getRawMempoolVerbose() {
+        return client.createRequest()
+                .method("getrawmempool")
+                .params(true)
+                .returnAsMap(HashMap.class, TxDetail.class)
                 .execute();
     }
 

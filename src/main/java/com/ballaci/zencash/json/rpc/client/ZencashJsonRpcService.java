@@ -6,6 +6,7 @@ import com.github.arteam.simplejsonrpc.core.annotation.JsonRpcMethod;
 import com.github.arteam.simplejsonrpc.core.annotation.JsonRpcParam;
 import com.github.arteam.simplejsonrpc.core.annotation.JsonRpcService;
 
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -135,4 +136,18 @@ public interface ZencashJsonRpcService {
      */
     @JsonRpcMethod
     MempoolInfo getMempoolInfo();
+
+    /**
+     * Returns all transaction ids in memory pool as a json array of string transaction ids.
+     * @return   an MempoolInfo object
+     */
+    @JsonRpcMethod
+    String[] getRawMempool();
+
+    /**
+     * Returns all transaction ids in memory pool as a json array of string transaction ids.
+     * @return   an MempoolInfo object
+     */
+    @JsonRpcMethod
+    Map<String,TxDetail> getRawMempoolVerbose();
 }
