@@ -165,7 +165,7 @@ public interface ZencashJsonRpcService {
     /**
      * Returns statistics about the unspent transaction output set.
      *
-     *  @return   Optional<UTXODetail>
+     *  @return   UTXOsetInfo
      */
     @JsonRpcMethod
     UTXOsetInfo getTxoutSetInfo();
