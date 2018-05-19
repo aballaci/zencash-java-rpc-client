@@ -217,6 +217,14 @@ public class ZencashJsonRpcServiceImpl implements ZencashJsonRpcService {
                 .executeNullable();
     }
 
+    @Override
+    public UTXOsetInfo getTxoutSetInfo() {
+        return client.createRequest()
+                .method("gettxoutsetinfo")
+                .returnAs(UTXOsetInfo.class)
+                .execute();
+    }
+
     private void init() {
 
         Config config = Config.getInstance();
